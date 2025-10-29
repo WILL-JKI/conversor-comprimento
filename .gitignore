@@ -1,0 +1,51 @@
+# Node (in case someone adds a package.json later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Optional npm cache
+.npm
+
+# Logs
+logs
+*.log
+npm-debug.log*
+lernajs-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+
+# Build outputs
+dist/
+build/
+
+# Environment files
+.env
+
+# Temporary files
+*.tmp
+*.temp
+
+# Mac or Linux swap files
+*~
+
+# JetBrains
+.idea/
+
+# Windows
+ehthumbs.db
+
+# Allow index.html
+!index.html
