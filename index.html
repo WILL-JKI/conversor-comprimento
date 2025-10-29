@@ -58,7 +58,14 @@
       const para = document.getElementById('unidadePara').value;
       const resultadoEl = document.getElementById('resultado');
 
-      console.log(valorInput, de, para);
+      // 1. Converter o valor de entrada para Metros
+      const valorEmMetros = valorInput * FatoresParaMetro[de];
+
+      // 2. Converter de Metros para a unidade de saída
+      const valorConvertido = valorEmMetros / FatoresParaMetro[para];
+
+      // Exibe o resultado
+      resultadoEl.innerText = `${valorInput} ${de} = ${valorConvertido.toFixed(4)} ${para}`;
     }
   </script>
 </body>
