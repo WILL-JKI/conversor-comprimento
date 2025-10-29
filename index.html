@@ -53,7 +53,12 @@
     };
 
     function converter() {
-      console.log("Calculando...");
+      const valorInput = parseFloat(document.getElementById('valorEntrada').value);
+      const de = document.getElementById('unidadeDe').value;
+      const para = document.getElementById('unidadePara').value;
+      const resultadoEl = document.getElementById('resultado');
+
+      console.log(valorInput, de, para);
     }
   </script>
 </body>
