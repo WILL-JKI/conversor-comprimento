@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversor de Comprimento</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Conversor de Unidades de Comprimento</h2>
+
+  <label for="valorEntrada">Valor:</label>
+  <input type="number" id="valorEntrada" placeholder="Digite o valor">
+
+  <label for="unidadeDe">De:</label>
+  <select id="unidadeDe">
+    <option value="metros">Metros (m)</option>
+    <option value="kilometros">Quilômetros (km)</option>
+    <option value="centimetros">Centímetros (cm)</option>
+    <option value="milimetros">Milímetros (mm)</option>
+    <option value="milhas">Milhas</option>
+    <option value="polegadas">Polegadas (in)</option>
+    <option value="pes">Pés (ft)</option>
+  </select>
+
+  <label for="unidadePara">Para:</label>
+  <select id="unidadePara">
+    <option value="metros">Metros (m)</option>
+    <option value="kilometros">Quilômetros (km)</option>
+    <option value="centimetros">Centímetros (cm)</option>
+    <option value="milimetros">Milímetros (mm)</option>
+    <option value="milhas">Milhas</option>
+    <option value="polegadas">Polegadas (in)</option>
+    <option value="pes">Pés (ft)</option>
+  </select>
+
+  <button onclick="converter()">Converter</button>
+
+  <h3 id="resultado"></h3>
+
+  <script>
+    /*
+      Para facilitar a conversão, primeiro convertemos
+      TODAS as entradas para a unidade base (Metros)
+      e depois convertemos de Metros para a unidade final.
+    */
+    const FatoresParaMetro = {
+      'metros': 1,
+      'kilometros': 1000,
+      'centimetros': 0.01,
+      'milimetros': 0.001,
+      'milhas': 1609.34,
+      'polegadas': 0.0254,
+      'pes': 0.3048
+    };
+
+    function converter() {
+      const valorInput = parseFloat(document.getElementById('valorEntrada').value);
+      const de = document.getElementById('unidadeDe').value;
+      const para = document.getElementById('unidadePara').value;
+      const resultadoEl = document.getElementById('resultado');
+
+      if (isNaN(valorInput)) {
+        resultadoEl.innerText = "Por favor, insira um valor numérico.";
+        return;
+      }
+
+      // 1. Converter o valor de entrada para Metros
+      const valorEmMetros = valorInput * FatoresParaMetro[de];
+
+      // 2. Converter de Metros para a unidade de saída
+      const valorConvertido = valorEmMetros / FatoresParaMetro[para];
+
+      // --- INÍCIO DA MODIFICAÇÃO (Commit 12) ---
+      
+      // Cria um formatador para o padrão brasileiro (pt-BR)
+      // - 'useGrouping: true' (o padrão) garante o separador de milhar (10.000)
+      // - 'maximumFractionDigits: 4' limita as casas decimais (0.0100 -> 0,01)
+      const formatador = new Intl.NumberFormat('pt-BR', {
+        maximumFractionDigits: 4
+      });
+
+      // Formata os dois números
+      const valorEntradaFormatado = formatador.format(valorInput);
+      const valorConvertidoFormatado = formatador.format(valorConvertido);
+      // --- FIM DA MODIFICAÇÃO ---
+
+      // Exibe o resultado formatado
+      resultadoEl.innerText = `${valorEntradaFormatado} ${de} = ${valorConvertidoFormatado} ${para}`;
+    }
+  </script>
+</body>
+</html>

@@ -30,6 +30,7 @@ __pycache__/
 # Build outputs
 dist/
 build/
+target/
 
 # Environment files
 .env
@@ -47,5 +48,4 @@ build/
 # Windows
 ehthumbs.db
 
-# Allow index.html
-!index.html
+
