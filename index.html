@@ -37,6 +37,21 @@
   <h3 id="resultado"></h3>
 
   <script>
+    /*
+      Para facilitar a conversão, primeiro convertemos
+      TODAS as entradas para a unidade base (Metros)
+      e depois convertemos de Metros para a unidade final.
+    */
+    const FatoresParaMetro = {
+      'metros': 1,
+      'kilometros': 1000,
+      'centimetros': 0.01,
+      'milimetros': 0.001,
+      'milhas': 1609.34,
+      'polegadas': 0.0254,
+      'pes': 0.3048
+    };
+
     function converter() {
       console.log("Calculando...");
     }
