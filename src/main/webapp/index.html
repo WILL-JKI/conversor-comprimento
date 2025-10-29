@@ -34,6 +34,7 @@
   </select>
 
   <button onclick="converter()">Converter</button>
+  <button type="button" id="btnLimpar" onclick="limparCampos()">Limpar</button>
 
   <h3 id="resultado"></h3>
 
@@ -86,6 +87,22 @@
 
       // Exibe o resultado formatado
       resultadoEl.innerText = `${valorEntradaFormatado} ${de} = ${valorConvertidoFormatado} ${para}`;
+    }
+
+    function limparCampos() {
+      const valorEl = document.getElementById('valorEntrada');
+      const deEl = document.getElementById('unidadeDe');
+      const paraEl = document.getElementById('unidadePara');
+      const resultadoEl = document.getElementById('resultado');
+
+      // Limpa valores e seleciona a primeira opção (padrão)
+      valorEl.value = '';
+      if (deEl && deEl.options && deEl.options.length) deEl.selectedIndex = 0;
+      if (paraEl && paraEl.options && paraEl.options.length) paraEl.selectedIndex = 0;
+      resultadoEl.innerText = '';
+
+      // Volta o foco para o campo de entrada
+      valorEl.focus();
     }
   </script>
 </body>
