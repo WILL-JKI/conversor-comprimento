@@ -38,6 +38,12 @@
 
   <h3 id="resultado"></h3>
 
+  <div id="historico" aria-live="polite">
+    <h4>Histórico (últimas 5 conversões)</h4>
+    <ul id="listaHistorico"></ul>
+    <button type="button" id="btnLimparHistorico" onclick="limparHistorico()">Limpar histórico</button>
+  </div>
+
   <script>
     /*
       Para facilitar a conversão, primeiro convertemos
@@ -86,7 +92,11 @@
       // --- FIM DA MODIFICAÇÃO ---
 
       // Exibe o resultado formatado
-      resultadoEl.innerText = `${valorEntradaFormatado} ${de} = ${valorConvertidoFormatado} ${para}`;
+      const resultadoTexto = `${valorEntradaFormatado} ${de} = ${valorConvertidoFormatado} ${para}`;
+      resultadoEl.innerText = resultadoTexto;
+
+      // adiciona ao histórico (últimas 5)
+      adicionarHistorico(resultadoTexto);
     }
 
     function limparCampos() {
@@ -104,6 +114,54 @@
       // Volta o foco para o campo de entrada
       valorEl.focus();
     }
+
+    // --- Histórico das conversões (últimas 5) ---
+    const HISTORICO_KEY = 'conversor.historico';
+
+    function adicionarHistorico(texto) {
+      try {
+        const raw = sessionStorage.getItem(HISTORICO_KEY);
+        const lista = raw ? JSON.parse(raw) : [];
+        lista.unshift({ when: new Date().toISOString(), text: texto });
+        // manter apenas as 5 primeiras
+        const trimmed = lista.slice(0, 5);
+        sessionStorage.setItem(HISTORICO_KEY, JSON.stringify(trimmed));
+        renderizarHistorico();
+      } catch (e) {
+        // se sessionStorage indisponível, ignorar silenciosamente
+        console.warn('Não foi possível salvar histórico:', e);
+      }
+    }
+
+    function renderizarHistorico() {
+      const listaEl = document.getElementById('listaHistorico');
+      if (!listaEl) return;
+      listaEl.innerHTML = '';
+      try {
+        const raw = sessionStorage.getItem(HISTORICO_KEY);
+        const lista = raw ? JSON.parse(raw) : [];
+        lista.forEach(item => {
+          const li = document.createElement('li');
+          const when = new Date(item.when);
+          li.innerText = `${when.toLocaleString('pt-BR')}: ${item.text}`;
+          listaEl.appendChild(li);
+        });
+      } catch (e) {
+        console.warn('Erro ao renderizar histórico:', e);
+      }
+    }
+
+    function limparHistorico() {
+      try {
+        sessionStorage.removeItem(HISTORICO_KEY);
+      } catch (e) {
+        console.warn('Não foi possível limpar histórico:', e);
+      }
+      renderizarHistorico();
+    }
+
+    // Inicializa histórico ao carregar a página
+    document.addEventListener('DOMContentLoaded', renderizarHistorico);
   </script>
 </body>
 </html>
