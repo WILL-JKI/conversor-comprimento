@@ -1,0 +1,16 @@
+/* Arquivo de estilos placeholder.
+   Atualizado para estar referenciado por index.html.
+   Neste momento mantemos o arquivo vazio de propósito —
+   futuros commits adicionarão regras de estilo pequenas e testáveis.
+*/
+
+/* Reset mínimo */
+* {
+  box-sizing: border-box;
+}
+
+/* Espaçamento base */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 16px;
+}
