@@ -58,6 +58,11 @@
       const para = document.getElementById('unidadePara').value;
       const resultadoEl = document.getElementById('resultado');
 
+      if (isNaN(valorInput)) {
+        resultadoEl.innerText = "Por favor, insira um valor numérico.";
+        return;
+      }
+
       // 1. Converter o valor de entrada para Metros
       const valorEmMetros = valorInput * FatoresParaMetro[de];
 
