@@ -3,49 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <title>Conversor de Comprimento</title>
-  <link rel="stylesheet" href="src\main\webapp\style.css">
+  <link rel="stylesheet" href="\src\main\webapp\style.css">
 </head>
 <body>
   <div class="container"> 
 
-  <h2>Conversor de Unidades de Comprimento</h2>
+    <h2>Conversor de Unidades de Comprimento</h2>
 
-  <label for="valorEntrada">Valor:</label>
-  <input type="number" id="valorEntrada" placeholder="Digite o valor">
+    <label for="valorEntrada">Valor:</label>
+    <input type="number" id="valorEntrada" placeholder="Digite o valor">
 
-  <label for="unidadeDe">De:</label>
-  <select id="unidadeDe">
-    <option value="metros">Metros (m)</option>
-    <option value="kilometros">Quilômetros (km)</option>
-    <option value="centimetros">Centímetros (cm)</option>
-    <option value="milimetros">Milímetros (mm)</option>
-    <option value="milhas">Milhas</option>
-    <option value="polegadas">Polegadas (in)</option>
-    <option value="pes">Pés (ft)</option>
-  </select>
+    <label for="unidadeDe">De:</label>
+    <select id="unidadeDe">
+      <option value="metros">Metros (m)</option>
+      <option value="kilometros">Quilômetros (km)</option>
+      <option value="centimetros">Centímetros (cm)</option>
+      <option value="milimetros">Milímetros (mm)</option>
+      <option value="milhas">Milhas</option>
+      <option value="polegadas">Polegadas (in)</option>
+      <option value="pes">Pés (ft)</option>
+    </select>
 
-  <label for="unidadePara">Para:</label>
-  <select id="unidadePara">
-    <option value="metros">Metros (m)</option>
-    <option value="kilometros">Quilômetros (km)</option>
-    <option value="centimetros">Centímetros (cm)</option>
-    <option value="milimetros">Milímetros (mm)</option>
-    <option value="milhas">Milhas</option>
-    <option value="polegadas">Polegadas (in)</option>
-    <option value="pes">Pés (ft)</option>
-  </select>
+    <label for="unidadePara">Para:</label>
+    <select id="unidadePara">
+      <option value="metros">Metros (m)</option>
+      <option value="kilometros">Quilômetros (km)</option>
+      <option value="centimetros">Centímetros (cm)</option>
+      <option value="milimetros">Milímetros (mm)</option>
+      <option value="milhas">Milhas</option>
+      <option value="polegadas">Polegadas (in)</option>
+      <option value="pes">Pés (ft)</option>
+    </select>
 
-  <button onclick="converter()">Converter</button>
-  <button type="button" id="btnInverter" onclick="inverterUnidades()" title="Inverter unidades">Inverter</button>
-  <button type="button" id="btnLimpar" onclick="limparCampos()">Limpar</button>
+    <button onclick="converter()">Converter</button>
+    <button type="button" id="btnInverter" onclick="inverterUnidades()" title="Inverter unidades">Inverter</button>
+    <button type="button" id="btnLimpar" onclick="limparCampos()">Limpar</button>
 
-  <h3 id="resultado"></h3>
+    <h3 id="resultado"></h3>
 
-  <div id="historico" aria-live="polite">
-    <h4>Histórico (últimas 5 conversões)</h4>
-    <ul id="listaHistorico"></ul>
-    <button type="button" id="btnLimparHistorico" onclick="limparHistorico()">Limpar histórico</button>
-  </div>
+    <div id="historico" aria-live="polite">
+      <h4>Histórico (últimas 5 conversões)</h4>
+      <ul id="listaHistorico"></ul>
+      <button type="button" id="btnLimparHistorico" onclick="limparHistorico()">Limpar histórico</button>
+    </div>
   </div>
 
   <script>
