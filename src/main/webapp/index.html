@@ -160,8 +160,28 @@
       renderizarHistorico();
     }
 
-    // Inicializa histórico ao carregar a página
-    document.addEventListener('DOMContentLoaded', renderizarHistorico);
+    // Inicializa histórico ao carregar a página e adiciona atalho Enter
+    document.addEventListener('DOMContentLoaded', function() {
+      renderizarHistorico();
+
+      // Campos do formulário
+      const valorEntrada = document.getElementById('valorEntrada');
+      const unidadeDe = document.getElementById('unidadeDe');
+      const unidadePara = document.getElementById('unidadePara');
+
+      // Quando o usuário pressiona Enter em qualquer um dos campos, executa a conversão
+      const handleEnter = (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          // Só tenta converter se o campo existir
+          try { converter(); } catch (err) { console.warn('Erro ao executar conversão via Enter:', err); }
+        }
+      };
+
+      if (valorEntrada) valorEntrada.addEventListener('keydown', handleEnter);
+      if (unidadeDe) unidadeDe.addEventListener('keydown', handleEnter);
+      if (unidadePara) unidadePara.addEventListener('keydown', handleEnter);
+    });
   </script>
 </body>
 </html>
