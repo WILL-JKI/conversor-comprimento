@@ -49,3 +49,14 @@ select {
   box-sizing: border-box; /* Garante que o padding não quebre o layout */
   font-size: 1rem;
 }
+
+/* Adiciona espaço abaixo dos inputs e selects */
+input[type="number"],
+select {
+  margin-bottom: 20px;
+}
+
+/* Remove a tag <br> que não precisamos mais */
+br {
+  display: none;
+}
