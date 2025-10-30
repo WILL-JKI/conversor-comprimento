@@ -34,6 +34,7 @@
   </select>
 
   <button onclick="converter()">Converter</button>
+  <button type="button" id="btnInverter" onclick="inverterUnidades()" title="Inverter unidades">Inverter</button>
   <button type="button" id="btnLimpar" onclick="limparCampos()">Limpar</button>
 
   <h3 id="resultado"></h3>
@@ -113,6 +114,57 @@
 
       // Volta o foco para o campo de entrada
       valorEl.focus();
+    }
+
+    // Função para inverter as unidades selecionadas nos selects
+    function parsePtBRNumber(str) {
+      if (!str) return NaN;
+      const cleaned = String(str).replace(/[^\d.,-]/g, '').trim();
+      if (!cleaned) return NaN;
+      // Se contém '.' e ',' assume que '.' é separador de milhares e ',' decimal
+      if (cleaned.indexOf('.') !== -1 && cleaned.indexOf(',') !== -1) {
+        return parseFloat(cleaned.replace(/\./g, '').replace(',', '.'));
+      }
+      // Se contém apenas ',' assume decimal
+      if (cleaned.indexOf(',') !== -1) {
+        return parseFloat(cleaned.replace(',', '.'));
+      }
+      // Caso contrário, parse direto
+      return parseFloat(cleaned);
+    }
+
+    function inverterUnidades() {
+      const deEl = document.getElementById('unidadeDe');
+      const paraEl = document.getElementById('unidadePara');
+      const valorEl = document.getElementById('valorEntrada');
+      const resultadoEl = document.getElementById('resultado');
+
+      if (!deEl || !paraEl) return;
+
+      // Troca os valores selecionados
+      const antigaDe = deEl.value;
+      deEl.value = paraEl.value;
+      paraEl.value = antigaDe;
+
+      // Se houver um resultado visível no formato esperado, tenta extrair o valor convertido
+      // e usa esse valor como novo valor de entrada, executando a conversão imediatamente.
+      const textoResultado = resultadoEl ? resultadoEl.innerText : '';
+      if (textoResultado && textoResultado.includes('=')) {
+        const rhs = textoResultado.split('=')[1] || '';
+        const match = rhs.match(/[\d.,-]+/);
+        if (match) {
+          const parsed = parsePtBRNumber(match[0]);
+          if (!isNaN(parsed)) {
+            // Define o valor de entrada para o número convertido e recalcula
+            valorEl.value = parsed;
+            try { converter(); } catch (e) { console.warn('Erro ao reconverter após inverter:', e); }
+            return;
+          }
+        }
+      }
+
+      // Se não houver resultado para extrair, apenas foca no campo de entrada
+      if (valorEl) valorEl.focus();
     }
 
     // --- Histórico das conversões (últimas 5) ---

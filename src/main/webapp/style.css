@@ -29,6 +29,12 @@ button {
   border: 1px solid #ccc;
 }
 
+/* Botão inverter (entre Converter e Limpar) */
+#btnInverter {
+  background: #ffffff;
+  border: 1px solid #ccc;
+}
+
 /* Histórico */
 #historico {
   margin-top: 16px;
