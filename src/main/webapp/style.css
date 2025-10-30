@@ -60,3 +60,20 @@ select {
 br {
   display: none;
 }
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff; /* Azul primário */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Azul mais escuro */
+}
