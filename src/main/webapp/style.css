@@ -19,3 +19,10 @@ body {
   height: 100vh; /* Ocupa a altura inteira */
   margin: 0;
 }
+.container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 450px;
+}
