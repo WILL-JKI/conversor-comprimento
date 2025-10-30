@@ -77,3 +77,15 @@ button {
 button:hover {
   background-color: #0056b3; /* Azul mais escuro */
 }
+
+#resultado {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 15px;
+  background-color: #e6f7ff; /* Fundo azul claro */
+  border: 1px solid #b3e0ff; /* Borda azul */
+  border-radius: 4px;
+  color: #0056b3; /* Texto azul escuro */
+}
