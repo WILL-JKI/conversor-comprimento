@@ -11,52 +11,11 @@
 
 /* Espaçamento base */
 body {
-  font-family: Arial, Helvetica, sans-serif, Times;
-  margin: 16px;
-}
-
-/* Estilo mínimo para botões (converter / limpar) */
-button {
-  margin-left: 8px;
-  padding: 6px 10px;
-  font-size: 0.95rem;
-  cursor: pointer;
-}
-
-/* Estilo específico para o botão limpar (sutil) */
-#btnLimpar {
-  background: #f2f2f2;
-  border: 1px solid #ccc;
-}
-
-/* Botão inverter (entre Converter e Limpar) */
-#btnInverter {
-  background: #ffffff;
-  border: 1px solid #ccc;
-}
-
-/* Histórico */
-#historico {
-  margin-top: 16px;
-  max-width: 640px;
-}
-
-#listaHistorico {
-  list-style: none;
-  padding-left: 0;
-  margin: 8px 0;
-}
-
-#listaHistorico li {
-  background: #fafafa;
-  border: 1px solid #eee;
-  padding: 6px 8px;
-  margin-bottom: 6px;
-  font-size: 0.95rem;
-}
-
-#btnLimparHistorico {
-  margin-top: 6px;
-  padding: 4px 8px;
-  font-size: 0.85rem;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Fundo cinza claro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa a altura inteira */
+  margin: 0;
 }
