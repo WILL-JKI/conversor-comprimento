@@ -39,3 +39,13 @@ label {
   color: #555;
   font-size: 0.9rem;
 }
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Garante que o padding não quebre o layout */
+  font-size: 1rem;
+}
