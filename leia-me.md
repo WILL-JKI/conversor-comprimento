@@ -1,3 +1,14 @@
+# Conversor de Unidades de Comprimento
+
+## Funcionalidades
+- ✨ Conversão entre diferentes unidades de comprimento (metros, centímetros, polegadas, pés)
+- 🎨 Interface web intuitiva e responsiva
+- ⚡ Processamento rápido e preciso das conversões
+
+---
+
+## Configuração do Projeto
+
 Projeto movido para estrutura Maven.
 
 Este projeto foi reorganizado para seguir a convenção de projetos web Java usando a estrutura Maven (conteúdo web em src/main/webapp). Agora é possível manipular e executar o projeto usando o Maven Wrapper incluído no repositório. No Windows (PowerShell), use a sintaxe:
@@ -12,4 +23,7 @@ Sugestões de comandos iniciais para os outros desenvolvedores:
 
 Esses comandos permitem que qualquer colaborador rode o projeto localmente sem precisar instalar o Maven globalmente (o Wrapper cuidará da versão adequada).
 
-— Equipe de desenvolvimento
+— Equipe de desenvolvimento:
+WILLAMIS
+SAMUEL 
+JOÃO CARLOS
