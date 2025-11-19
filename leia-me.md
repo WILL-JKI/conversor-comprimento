@@ -23,8 +23,6 @@ Sugestões de comandos iniciais para os outros desenvolvedores:
 
 Esses comandos permitem que qualquer colaborador rode o projeto localmente sem precisar instalar o Maven globalmente (o Wrapper cuidará da versão adequada).
 
-## Como contribuir
-
 — Equipe de desenvolvimento:
 WILLAMIS
 SAMUEL 
