@@ -23,7 +23,16 @@ Sugestões de comandos iniciais para os outros desenvolvedores:
 
 Esses comandos permitem que qualquer colaborador rode o projeto localmente sem precisar instalar o Maven globalmente (o Wrapper cuidará da versão adequada).
 
-— Equipe de desenvolvimento:
-WILLAMIS
-SAMUEL 
-JOÃO CARLOS
+## Como Contribuir
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature: `git checkout -b minha-feature`
+3. Faça commit das suas alterações: `git commit -m "tipo: mensagem descritiva"`
+4. Faça push para a branch: `git push origin minha-feature`
+5. Abra um Pull Request
+
+## Equipe de Desenvolvimento
+
+- WILLAMIS
+- SAMUEL
+- JOÃO CARLOS
