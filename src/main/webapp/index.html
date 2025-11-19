@@ -22,6 +22,7 @@
     <option value="milhas">Milhas</option>
     <option value="polegadas">Polegadas (in)</option>
     <option value="pes">Pés (ft)</option>
+    <option value="leguas">Léguas</option>
   </select>
 
   <label for="unidadePara">Para:</label>
@@ -33,6 +34,7 @@
     <option value="milhas">Milhas</option>
     <option value="polegadas">Polegadas (in)</option>
     <option value="pes">Pés (ft)</option>
+    <option value="leguas">Léguas</option>
   </select>
   <!-- Comentário: botão que chama a função `converter()` para transformar o valor entre as unidades selecionadas -->
   <button onclick="converter()">Converter</button>
@@ -61,7 +63,8 @@
       'milimetros': 0.001,
       'milhas': 1609.34,
       'polegadas': 0.0254,
-      'pes': 0.3048
+      'pes': 0.3048,
+      'leguas': 4828.02
     };
 
     function converter() {
