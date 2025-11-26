@@ -3,18 +3,17 @@ FROM maven:3.8-openjdk-11 AS builder
 
 WORKDIR /app
 
-# Copia os arquivos do Maven Wrapper e pom.xml primeiro (para cache de dependências)
-COPY .mvn/ .mvn/
-COPY mvnw mvnw.cmd pom.xml ./
+# Copia o pom.xml primeiro (para cache de dependências)
+COPY pom.xml ./
 
 # Baixa as dependências (esta camada será cacheada se o pom.xml não mudar)
-RUN ./mvnw dependency:go-offline
+RUN mvn dependency:go-offline -B
 
 # Copia o código fonte
 COPY src/ ./src/
 
 # Compila e gera o WAR
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests -B
 
 # Stage 2: Imagem final com Jetty
 FROM jetty:11-jre11-alpine
