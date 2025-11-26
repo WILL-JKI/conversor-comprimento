@@ -22,6 +22,7 @@ desktop.ini
 
 # VS Code
 .vscode/
+.kiro
 
 # Python
 __pycache__/
