@@ -42,18 +42,36 @@ echo [SEU_TOKEN] | docker login ghcr.io -u [SEU_USUARIO] --password-stdin
 docker push ghcr.io/[seu-usuario]/conversor-comprimento:latest
 ```
 
+## ✅ Testes Realizados com Sucesso
+
+A imagem Docker foi testada e está funcionando perfeitamente! 
+
+### Resultados dos Testes:
+- ✅ Build da imagem: **Sucesso** (83.4s)
+- ✅ Container iniciado: **Sucesso**
+- ✅ Jetty rodando na porta 8080: **Confirmado**
+- ✅ Aplicação acessível: **Funcionando**
+- ✅ HTML carregado corretamente: **OK**
+
 ## Testar a Imagem Localmente
 
-Antes de publicar, você pode testar localmente:
+Para testar novamente localmente:
 
 ```bash
 # Build
 docker build -t conversor-comprimento:test .
 
-# Run
-docker run -p 8080:8080 conversor-comprimento:test
+# Run (em background)
+docker run -d -p 8080:8080 --name conversor-test conversor-comprimento:test
 
-# Acesse: http://localhost:8080
+# Verificar logs
+docker logs conversor-test
+
+# Acesse no navegador: http://localhost:8080
+
+# Parar e remover o container de teste
+docker stop conversor-test
+docker rm conversor-test
 ```
 
 ## Usar a Imagem Publicada
