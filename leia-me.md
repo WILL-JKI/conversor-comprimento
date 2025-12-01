@@ -4,6 +4,35 @@
 - ✨ Conversão entre diferentes unidades de comprimento (metros, centímetros, polegadas, pés)
 - 🎨 Interface web intuitiva e responsiva
 - ⚡ Processamento rápido e preciso das conversões
+- 📁 **NOVO**: Upload de arquivo para conversão em lote
+- 🔧 **NOVO**: Backend Java com 3 bibliotecas integradas
+
+---
+
+## Bibliotecas Utilizadas
+
+### 1. Apache Commons FileUpload
+Processa upload de arquivos no servidor, permitindo conversões em lote.
+
+### 2. Apache Commons Lang3
+Valida e manipula strings, garantindo dados consistentes antes das conversões.
+
+### 3. Indriya (JSR-385)
+Biblioteca robusta para conversão de unidades de medida, seguindo padrões Java.
+
+---
+
+## Conversão em Lote
+
+Você pode enviar um arquivo `.txt` ou `.csv` com múltiplas conversões:
+
+```
+100,metros,kilometros
+50,pes,centimetros
+1000,milimetros,metros
+```
+
+O sistema processará todas as linhas e retornará os resultados. Veja o arquivo `exemplo-conversao.txt` para referência.
 
 ---
 
