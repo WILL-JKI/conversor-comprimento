@@ -1,7 +1,7 @@
 # Conversor de Unidades de Comprimento
 
 ## Funcionalidades
-- ✨ Conversão entre diferentes unidades de comprimento (metros, centímetros, polegadas, pés)
+- ✨ Conversão entre diferentes unidades de comprimento (metros, centímetros, polegadas, pés, Léguas)
 - 🎨 Interface web intuitiva e responsiva
 - ⚡ Processamento rápido e preciso das conversões
 - 📁 **NOVO**: Upload de arquivo para conversão em lote
