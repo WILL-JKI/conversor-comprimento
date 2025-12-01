@@ -1,0 +1,8 @@
+# Arquivo de exemplo para conversão em lote
+# Formato: valor,unidade_origem,unidade_destino
+
+100,metros,kilometros
+50,pes,centimetros
+1000,milimetros,metros
+5,milhas,kilometros
+12,polegadas,centimetros

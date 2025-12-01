@@ -89,3 +89,65 @@ button:hover {
   border-radius: 4px;
   color: #0056b3; /* Texto azul escuro */
 }
+/* Seção de Upload */
+#secaoUpload {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #e0e0e0;
+}
+
+#secaoUpload h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#secaoUpload p {
+  margin-bottom: 15px;
+}
+
+#secaoUpload code {
+  background-color: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px dashed #007bff;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+input[type="file"]:hover {
+  background-color: #e9ecef;
+}
+
+#resultadoUpload {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  min-height: 50px;
+}
+
+#resultadoUpload ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#resultadoUpload li {
+  padding: 8px;
+  margin-bottom: 5px;
+  background-color: #ffffff;
+  border-left: 3px solid #28a745;
+  border-radius: 3px;
+}
+
+#resultadoUpload li[style*="orange"] {
+  border-left-color: #ffc107;
+}

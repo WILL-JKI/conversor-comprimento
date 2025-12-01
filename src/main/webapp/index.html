@@ -48,6 +48,19 @@
     <ul id="listaHistorico"></ul>
     <button type="button" id="btnLimparHistorico" onclick="limparHistorico()">Limpar histórico</button>
   </div>
+
+  <!-- Seção de Upload de Arquivo -->
+  <div id="secaoUpload">
+    <h3>Conversão em Lote (Upload de Arquivo)</h3>
+    <p style="font-size: 0.85rem; color: #666;">
+      Envie um arquivo CSV/TXT com formato: <code>valor,unidade_origem,unidade_destino</code><br>
+      Exemplo: <code>100,metros,kilometros</code>
+    </p>
+    <input type="file" id="arquivoInput" accept=".txt,.csv" />
+    <button type="button" onclick="enviarArquivo()">Processar Arquivo</button>
+    
+    <div id="resultadoUpload"></div>
+  </div>
   </div>
 
   <script>
@@ -240,6 +253,49 @@
       if (unidadeDe) unidadeDe.addEventListener('keydown', handleEnter);
       if (unidadePara) unidadePara.addEventListener('keydown', handleEnter);
     });
+
+    // --- Função de Upload de Arquivo ---
+    function enviarArquivo() {
+      const arquivoInput = document.getElementById('arquivoInput');
+      const resultadoDiv = document.getElementById('resultadoUpload');
+      
+      if (!arquivoInput.files || arquivoInput.files.length === 0) {
+        resultadoDiv.innerHTML = '<p style="color: red;">Por favor, selecione um arquivo.</p>';
+        return;
+      }
+
+      const arquivo = arquivoInput.files[0];
+      const formData = new FormData();
+      formData.append('arquivo', arquivo);
+
+      resultadoDiv.innerHTML = '<p>Processando arquivo...</p>';
+
+      fetch('/upload', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.erro) {
+          resultadoDiv.innerHTML = `<p style="color: red;">Erro: ${data.erro}</p>`;
+          return;
+        }
+
+        let html = '<h4>Resultados da Conversão:</h4><ul style="text-align: left;">';
+        data.conversoes.forEach(conv => {
+          if (conv.erro) {
+            html += `<li style="color: orange;">Linha ${conv.linha}: ${conv.erro}</li>`;
+          } else {
+            html += `<li>Linha ${conv.linha}: ${conv.entrada} → ${conv.resultado}</li>`;
+          }
+        });
+        html += '</ul>';
+        resultadoDiv.innerHTML = html;
+      })
+      .catch(error => {
+        resultadoDiv.innerHTML = `<p style="color: red;">Erro ao processar: ${error.message}</p>`;
+      });
+    }
   </script>
 </body>
 </html>
