@@ -15,8 +15,8 @@ COPY src/ ./src/
 # Compila e gera o WAR
 RUN mvn clean package -DskipTests -B
 
-# Stage 2: Imagem final com Jetty
-FROM jetty:11-jre11-alpine
+# Stage 2: Imagem final com Jetty 9
+FROM jetty:9.4-jre11-alpine
 
 # Remove aplicações padrão do Jetty
 RUN rm -rf /var/lib/jetty/webapps/*
